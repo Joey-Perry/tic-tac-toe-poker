@@ -53,9 +53,12 @@ function play(boxId){
         boardArray[boxId] = currentPlayer;
         // console.log(boardArray);
         if (determineWinner(boardArray, currentPlayer)){
-            alert(`Player ${currentPlayer} wins!`)
+            alert(`Player ${currentPlayer} wins!`);
+            document.querySelectorAll('td').forEach(square => {
+                square.onclick = null;
+            });
         } else if (catsGame(boardArray)){
-            alert('Cats game!')
+            alert('Cats game!');
         } else {
             togglePlayerTurnIndicator(player);
         }
